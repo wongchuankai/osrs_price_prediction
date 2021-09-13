@@ -1,6 +1,7 @@
 import requests
 import json
 import csv
+import datetime
 
 def getItemDetails_catalogue(itemID):
     BASE_URL = "http://services.runescape.com/m=itemdb_oldschool"
@@ -26,6 +27,7 @@ def get_runes_dataset(filename):
         # print(current_daily_list)
 
         for daily_time_stamp in current_daily_list:
+            #daily_time_stamp_reformatted = datetime.datetime.utcfromtimestamp(int(daily_time_stamp)/1000).strftime('%d-%m-%Y')
             if(daily_time_stamp in GE_runes_data):
                 GE_runes_data[daily_time_stamp].append(current_daily_list[daily_time_stamp])
             else:
